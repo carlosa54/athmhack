@@ -35,9 +35,11 @@ class Common(Configuration):
         'django.contrib.staticfiles',
 
         # Third party
+        'django_extensions',
         'corsheaders',
 
         # Apps
+        'athmhack.users',
     )
 
     MIDDLEWARE_CLASSES = (
@@ -82,8 +84,11 @@ class Common(Configuration):
     MEDIA_URL = '/media/'
 
     STATIC_URL = '/static/'
+    STATIC_ROOT = 'staticfiles'
 
     TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
+
+    AUTH_USER_MODEL = 'users.User'
 
     CORS_ORIGIN_ALLOW_ALL = True
 
