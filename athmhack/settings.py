@@ -135,7 +135,6 @@ class Staging(Common):
     """
     INSTALLED_APPS = Common.INSTALLED_APPS + (
         'djangosecure',
-        'storages',
     )
 
     # django-secure
