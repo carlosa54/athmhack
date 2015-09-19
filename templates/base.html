@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block head_title %}Health For Life{% endblock %}</title>
+
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap-3.3.4-dist/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'material-dist/css/material.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'material-dist/css/material-fullpalette.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'material-dist/css/ripples.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'material-dist/css/roboto.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+
+    {% block extra_css %}
+
+    {% endblock %}
+
+    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'bootstrap-3.3.4-dist/js/bootstrap.min.js' %}"></script>
+
+</head>
+<body>
+    <div id="wrapper">
+        {% include 'common/navbar.html' %}
+
+        {% block content %}
+
+        {% endblock %}
+        {% include 'common/footer.html' %}
+    </div>
+    <script src="{% static 'material-dist/js/material.min.js' %}"></script>
+    <script src="{% static 'material-dist/js/ripples.min.js' %}"></script>
+    <script type="text/javascript">
+        $.material.init()
+    </script>
+
+    {% block extra_js %}
+
+    {% endblock %}
+
+</body>
+</html>
