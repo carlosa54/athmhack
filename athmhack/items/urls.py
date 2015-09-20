@@ -14,11 +14,6 @@ urlpatterns = [
         name="edititem"
     ),
     url(
-        r'dashboard$',
-        views.dashboard,
-        name="dashboard"
-    ),
-    url(
         r'dashboard/addInvoice$',
         views.dashadd,
         name="dashAdd"

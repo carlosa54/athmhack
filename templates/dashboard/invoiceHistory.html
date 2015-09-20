@@ -81,7 +81,7 @@
             <table class="table table-bordered">
             <tr>
                 <th>Invoice #</th>
-                <th>Client</th>
+                <th>Biller</th>
                 <th>Total</th>
                 <th>Paid</th>
                 <th>Details</th>
@@ -90,7 +90,7 @@
             {% for invoice in invoices %}
                 <tr>
                     <td>{{invoice.id}}</td>
-                    <td>{{invoice.client.full_name}}</td>
+                    <td>{{invoice.biller.full_name}}</td>
                     <td>{{invoice.total}}</td>
                     <td>{{invoice.paid}}</td>
                     <td><a class="btn btn-primary btn-block" href="/invoices/{{invoice.id}}">Details</a></td>

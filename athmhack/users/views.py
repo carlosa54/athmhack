@@ -3,6 +3,9 @@ from django.contrib.auth import logout, authenticate, login
 
 from django.shortcuts import redirect
 from .models import User
+from ..items.models import Item
+from ..invoices.models import InvoiceItem
+from ..invoices.forms import InvoiceForm
 
 import requests
 
@@ -121,3 +124,61 @@ class LoginView(TemplateView):
         if request.user.is_authenticated():
             return redirect("/")
         return self.render_to_response(context)
+
+
+class DashBoardView(TemplateView):
+    template_name = "dashboard/index.html"
+
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated():
+            return redirect("/login")
+        context = self.get_context_data(**kwargs)
+        form = InvoiceForm(request.POST)
+
+        if form.is_valid():
+            new_invoice = form.save(commit=False)
+            new_invoice.biller = request.user
+
+            items = {}
+            for item in request.POST.items():
+                prop = item[0].split("_")
+                if len(prop) == 2:
+                    prop_id = prop[1]
+                    prop_exist = items.get(prop_id, None)
+                    if prop_exist:
+                        items[prop_id][prop[0]] = item[1]
+                    else:
+                        items[prop_id] = {}
+                        items[prop_id][prop[0]] = item[1]
+
+            print items
+
+            new_invoice.save()
+
+            for item in items.items():
+                add_item = Item.objects.get(pk=item[1]['id'])
+                invoice_item = InvoiceItem(item=add_item, invoice=new_invoice, quantity=item[1]['quantity'])
+                invoice_item.save()
+
+            new_invoice.send_invoice()
+            context["success"] = "The Invoice was sent to the user"
+        else:
+            context["error"] = "The Invoice failed to be created."
+
+        context = self.retrieve_client_and_items(request.user, context)
+        return self.render_to_response(context)
+
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated():
+            return redirect("/login")
+        context = self.get_context_data(**kwargs)
+
+        context = self.retrieve_client_and_items(request.user, context)
+        return self.render_to_response(context)
+
+    def retrieve_client_and_items(self, user, context):
+        clients = User.objects.exclude(id=user.id)
+        items = Item.objects.filter(user=user)
+        context["clients"] = clients
+        context["items"] = items
+        return context
