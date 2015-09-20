@@ -60,3 +60,6 @@ target/
 venv/
 .env
 staticfiles
+.DS_Store
+db.sqlite3
+static/.DS_Store
