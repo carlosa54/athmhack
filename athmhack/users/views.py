@@ -10,7 +10,7 @@ def user_logout(request):
 
 
 class HomeView(TemplateView):
-    template_name = 'index.html'
+    template_name = 'dashboard/index.html'
 
     def get_context_data(self, **kwargs):
         return super(HomeView, self).get_context_data(**kwargs)
