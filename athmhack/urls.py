@@ -25,6 +25,10 @@ urlpatterns = patterns('',
     url(
         r'^',
         include('athmhack.invoices.urls')
-    )
+    ),
+    url(
+        r'^',
+        include('athmhack.history.urls')
+    ),
 )
 
