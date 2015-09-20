@@ -14,7 +14,7 @@
             {% if success %}
                 <div class="alert alert-dismissable alert-success">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>Oh snap!</strong> {{ success }}
+                   {{ success }}
                 </div>
             {% endif %}
             <form method="post" action="{% url 'invoices' %}" class="form-horizontal"> {% csrf_token %}

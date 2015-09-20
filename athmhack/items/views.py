@@ -2,9 +2,9 @@ from django.shortcuts import render
 from .forms import ItemForm
 from .models import Item
 from django.views.generic import TemplateView 
-from django.shortcuts import redirect
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
+
+# Create your views here.
+from django.shortcuts import render, redirect
 
 class AddItemView(TemplateView):
 	template_name = 'items/item.html'
