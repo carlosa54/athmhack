@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            {% if not_found %}
+                <div class="alert alert-dismissable alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>Oh snap!</strong> This Invoice does not exist.
+                </div>
+            {% else %}
+                {% if error %}
+                <div class="alert alert-dismissable alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>Oh snap!</strong> {{ error }}.
+                </div>
+                {% endif %}
+                {% if success %}
+                <div class="alert alert-dismissable alert-success">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                     {{ success }}
+                </div>
+                {% endif %}
+                <h2>Invoice #{{ invoice.id }}</h2>
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Item Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                    {% for item in items %}
+                        <tr>
+                            <td>{{ item.item.name }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>${{ item.subtotal }}</td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b class="pull-right">Total: </b></td>
+                        <td>${{ invoice.total }}</td>
+                    </tr>
+                </table>
+                {% if not invoice.paid %}
+                    <form action="/invoices/{{ invoice.id }}" method="post"> {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-primary btn-block">Pay</button>
+                            </div>
+                        </div>
+                    </form>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
