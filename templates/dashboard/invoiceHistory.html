@@ -19,28 +19,22 @@
                         <table class="table table-condensed">
                             <thead>
                                 <tr>
-                                    <td><strong>Item Name</strong></td>
-                                    <td class="text-center"><strong>Item Price</strong></td>
-                                    <td class="text-center"><strong>Item Quantity</strong></td>
-                                    <td class="text-right"><strong>Total</strong></td>
+                                    <td><strong>Date</strong></td>
+                                    <td class="text-center"><strong>Client Phone</strong></td>
+                                    <td class="text-center"><strong>Amount</strong></td>
+                                    <td class="text-center"><strong>Status</strong></td>
                                 </tr>
                             </thead>
                             <tbody>
 
-                                <tr>
-                                    <td>p.name</td>
-                                    <td class="text-center">p.price</td>
-                                    <td class="text-center">p.quantity</td>
-                                    <td class="text-right">p.subtotal</td>
-                                    
-                                </tr>
-
-                                <tr>
-                                    <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
-                                    <td class="emptyrow"></td>
-                                    <td class="emptyrow text-center"><strong>Total</strong></td>
-                                    <td class="emptyrow text-right"> sum </td>
-                                </tr>
+                                {% for payment in payments_received %}
+                                    <tr>
+                                        <td>{{ payment.transfer.date }}</td>
+                                        <td class="text-center">{{ payment.transfer.senderPhoneNum }}</td>
+                                        <td class="text-center">{{ payment.transfer.amount }}</td>
+                                        <td class="text-center">{{ payment.transfer.transferStatus }}</td>
+                                    </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -58,28 +52,22 @@
                         <table class="table table-condensed">
                             <thead>
                                 <tr>
-                                    <td><strong>Item Name</strong></td>
-                                    <td class="text-center"><strong>Item Price</strong></td>
-                                    <td class="text-center"><strong>Item Quantity</strong></td>
-                                    <td class="text-right"><strong>Total</strong></td>
+                                    <td><strong>Date</strong></td>
+                                    <td class="text-center"><strong>Biller</strong></td>
+                                    <td class="text-center"><strong>Amount</strong></td>
+                                    <td class="text-center"><strong>Status</strong></td>
                                 </tr>
                             </thead>
                             <tbody>
 
-                                <tr>
-                                    <td>p.name</td>
-                                    <td class="text-center">p.price</td>
-                                    <td class="text-center">p.quantity</td>
-                                    <td class="text-right">p.subtotal</td>
-                                    
-                                </tr>
-
-                                <tr>
-                                    <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
-                                    <td class="emptyrow"></td>
-                                    <td class="emptyrow text-center"><strong>Total</strong></td>
-                                    <td class="emptyrow text-right"> sum </td>
-                                </tr>
+                                {% for payment in payments_sent %}
+                                    <tr>
+                                        <td>{{ payment.transfer.date }}</td>
+                                        <td class="text-center">{{ payment.transfer.recipientPhoneNum }}</td>
+                                        <td class="text-center">{{ payment.transfer.amount }}</td>
+                                        <td class="text-center">{{ payment.transfer.transferStatus }}</td>
+                                    </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
