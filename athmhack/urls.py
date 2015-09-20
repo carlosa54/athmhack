@@ -22,5 +22,9 @@ urlpatterns = patterns('',
         r'^',
         include('athmhack.items.urls')
     ),
+    url(
+        r'^',
+        include('athmhack.invoices.urls')
+    )
 )
 
