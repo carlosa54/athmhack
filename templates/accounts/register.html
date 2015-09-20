@@ -13,7 +13,7 @@
                 </div>
             {% endif %}
 
-            <form class="form-horizontal method="post" action="{% url 'register' %}"> {% csrf_token %}
+            <form class="form-horizontal" method="post" action="{% url 'register' %}"> {% csrf_token %}
                 <fieldset>
                 <legend>Register</legend>
                     <div class="form-group">
