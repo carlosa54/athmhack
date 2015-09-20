@@ -2,8 +2,10 @@
 	padding-top: 125px;
 }
 #infoLogos{
-	left: 20%;
 	padding-top: 7%;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
 }
 #infoTxt{
 	margin-right: auto;
@@ -11,3 +13,6 @@
 	text-align: center;
 }
 
+#invoiceTxt{
+	margin-top: 13%;
+}
