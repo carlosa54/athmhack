@@ -6,9 +6,12 @@ urlpatterns = [
 
     url(
         r'^items$',
-        views.ItemView.as_view(),
-        name= "items"
+        views.AddItemView.as_view(),
+        name="items"
     ),
-
-
+    url(
+        r'^edititem$',
+        views.EditItemView.as_view(),
+        name="edititem"
+    ),
 ]

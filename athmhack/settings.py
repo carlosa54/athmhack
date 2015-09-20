@@ -41,6 +41,7 @@ class Common(Configuration):
         # Apps
         'athmhack.users',
         'athmhack.items',
+        'athmhack.invoices',
         'athmhack.api',
     )
 
@@ -101,6 +102,8 @@ class Common(Configuration):
             'LOCATION': '127.0.0.1:11211',
         }
     }
+
+    PROTOCOL = "http"
 
     DOMAIN = values.Value(environ_prefix=None)
 
