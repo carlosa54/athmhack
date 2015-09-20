@@ -6,9 +6,8 @@
 	padding-top: 7%;
 }
 #infoTxt{
-	left: 20%;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
 }
 
-#invoiceTxt{
-	margin-top: 13%;
-}
