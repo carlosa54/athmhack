@@ -14,4 +14,8 @@ urlpatterns = patterns('',
         r'^',
         include('athmhack.users.urls')
     ),
+    url(
+        r'^',
+        include('athmhack.api.urls')
+    ),
 )
