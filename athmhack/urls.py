@@ -18,4 +18,9 @@ urlpatterns = patterns('',
         r'^',
         include('athmhack.api.urls')
     ),
+    url(
+        r'^',
+        include('athmhack.items.urls')
+    ),
 )
+
