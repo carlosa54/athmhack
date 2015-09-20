@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Create Invoice <span class="sr-only">(current)</span></a></li>
+            <li><a href="{% url 'items' %}">Register Items</a></li>
+            <li><a href="dashboard/history.html">History</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Dashboard</h1>
+          {% include 'dashboard/invoice.html' %}
+
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
+
+
+{% block extra_css %}
+
+    <link rel="stylesheet" href="static/css/dashboard.css"/>
+    <link rel="stylesheet" href="static/css/invoice.css"/>
+
+{% endblock %}
+

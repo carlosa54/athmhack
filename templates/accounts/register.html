@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 {% block content %}
     <div class="container">
         <div class="jumbotron">
@@ -10,7 +13,7 @@
                 </div>
             {% endif %}
 
-            <form method="post" action="{% url 'register' %}"> {% csrf_token %}
+            <form class="form-horizontal method="post" action="{% url 'register' %}"> {% csrf_token %}
                 <fieldset>
                 <legend>Register</legend>
                     <div class="form-group">
