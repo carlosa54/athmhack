@@ -9,19 +9,19 @@
                 <h2>Invoice for purchase #{{invoice.id}}</h2>
                 {% if not_found %}
                 <div class="alert alert-dismissable alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="close" data-dismiss="alert">Ã—</button>
                     <strong>Oh snap!</strong> This Invoice does not exist.
                 </div>
                 {% else %}
                 {% if error %}
                     <div class="alert alert-dismissable alert-danger">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <button type="button" class="close" data-dismiss="alert">Ã—</button>
                         <strong>Oh snap!</strong> {{ error }}.
                     </div>
                 {% endif %}
                 {% if success %}
                 <div class="alert alert-dismissable alert-success">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="close" data-dismiss="alert">Ã—</button>
                      {{ success }}
                 </div>
                 {% endif %}
@@ -38,7 +38,20 @@
                         </div>
                     </div>
                 </div>
+                <div id="payButton" class="col-xs-8">
+                    {% if not invoice.paid %}
+                        <form action="/invoices/{{ invoice.id }}" method="post"> {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
 
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary btn-block">Pay</button>
+                                </div>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
@@ -77,18 +90,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                        {% if not invoice.paid %}
-                            <form action="/invoices/{{ invoice.id }}" method="post"> {% csrf_token %}
-                                <div class="row">
-                                    <div class="col-md-6">
-
-                                    </div>
-                                    <div class="col-md-6">
-                                        <button type="submit" class="btn btn-primary btn-block">Pay</button>
-                                    </div>
-                                </div>
-                            </form>
-                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -96,5 +97,3 @@
     </div>
 </div>
 {% endblock %}
-
-
