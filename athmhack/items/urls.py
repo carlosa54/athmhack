@@ -1,12 +1,14 @@
-from django.conf.urls import patterns
+from django.conf.urls import url
 
 from . import views
 
-urlpatterns = patterns(
-    # Prefix
-    '',
-    (
+urlpatterns = [
+
+    url(
         r'^items$',
-        views.ItemView.as_view()
+        views.ItemView.as_view(),
+        name= "items"
     ),
-)
+
+
+]

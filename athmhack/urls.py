@@ -15,8 +15,12 @@ urlpatterns = patterns('',
         include('athmhack.users.urls')
     ),
     url(
-    	r'^',
-    	include('athmhack.items.urls')
+        r'^',
+        include('athmhack.api.urls')
+    ),
+    url(
+        r'^',
+        include('athmhack.items.urls')
     ),
 )
 
