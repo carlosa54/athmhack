@@ -2,17 +2,19 @@ from django.shortcuts import render
 from .forms import ItemForm
 from .models import Item
 from django.views.generic import TemplateView 
-# Create your views here.
+from django.shortcuts import redirect
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
 class AddItemView(TemplateView):
 	template_name = 'items/item.html'
-
+	
 	def post(self, request, *args, **kwargs):
+		
+		if not request.user.is_authenticated():
+			return redirect("/login")
 		context = self.get_context_data(**kwargs)
 		form = ItemForm(request.POST)
-
 		if form.is_valid():
 			new_item = form.save(commit=False)
 			new_item.user = request.user
@@ -21,6 +23,9 @@ class AddItemView(TemplateView):
 		return self.render_to_response(context)
 
 	def get(self, request, *args, **kwargs):
+		
+		if not request.user.is_authenticated():
+			return redirect("/login")
 		context = self.get_context_data(**kwargs)
 		# if not request.user.is_authenticated():
 		#	return redirect("/login")
@@ -29,7 +34,8 @@ class AddItemView(TemplateView):
 class EditItemView(TemplateView):
 	template_name = 'items/edit.html'
 	def post(self, request, *args, **kwargs):
-		
+		if not request.user.is_authenticated():
+			return redirect("/login")
 		context = self.get_context_data(**kwargs)
 		
 		form = ItemForm(request.POST)

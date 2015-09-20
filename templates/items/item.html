@@ -1,7 +1,20 @@
 {% extends 'index.html' %}
 {% block content %}
+<div class="jumbotron">
+<h3>Add item</h3>
+{% if error %}
+<div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Oh snap!</strong> {{ errors }}
+</div>
+{% endif %}
 
-<h1>Add item</h1>
+{% if success %}
+<div class="alert alert-dismissable alert-success">
+<button type="button" class="close" data-dismiss="alert">×</button>
+<strong>Oh snap!</strong> {{ success }}
+</div>
+{% endif %}
 
 <form class="form-inline" method='POST' action=''>
 	{% csrf_token %}
@@ -16,9 +29,9 @@
 		<input id="id_price" class="form-control" maxlength="254" name="price" min= "0" max= "500"type="number" placeholder="Price">
 		</div>
 	</div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-primary btn-block">Submit</button>
 </form>
-
+</div>
 </div>
 </div>
 
