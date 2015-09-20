@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
+from ..invoices.models import Invoice
 
 import requests
 
@@ -33,4 +34,6 @@ class HistoryView(TemplateView):
             payments_received = data['transferList']
             context["payments_received"] = payments_received
 
+        invoices = Invoice.objects.filter(client=request.user).order_by('paid', 'created_at')
+        context['invoices'] = invoices
         return self.render_to_response(context)

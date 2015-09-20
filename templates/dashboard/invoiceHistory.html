@@ -76,4 +76,30 @@
         </div>
 </div>
 
+    <div class="row">
+        <div class="col-md-10">
+            <table class="table table-bordered">
+            <tr>
+                <th>Invoice #</th>
+                <th>Client</th>
+                <th>Total</th>
+                <th>Paid</th>
+                <th>Details</th>
+            </tr>
+
+            {% for invoice in invoices %}
+                <tr>
+                    <td>{{invoice.id}}</td>
+                    <td>{{invoice.client.full_name}}</td>
+                    <td>{{invoice.total}}</td>
+                    <td>{{invoice.paid}}</td>
+                    <td><a class="btn btn-primary btn-block" href="/invoices/{{invoice.id}}">Details</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+        </div>
+    </div>
+
+</div>
+
 
