@@ -1,30 +1,35 @@
-{% extends 'base.html' %}
 
-{% block content %}
+<div class="jumbotron" >
+<h3>Add item</h3>
+{% if error %}
+<div class="alert alert-dismissable alert-danger">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Oh snap!</strong> {{ errors }}
+</div>
+{% endif %}
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar" id="sideBar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="/invoices/add_invoice.html">Create Invoice <span class="sr-only">(current)</span></a></li>
-            <li><a href="{% url 'items' %}">Register Items</a></li>
-            <li><a href="dashboard/history.html">History</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-          {% include 'dashboard/invoice2.html' %}
-        </div>
-      </div>
+{% if success %}
+<div class="alert alert-dismissable alert-success">
+<button type="button" class="close" data-dismiss="alert">×</button>
+<strong>Oh snap!</strong> {{ success }}
+</div>
+{% endif %}
+
+<form class="form-inline" method='POST' action=''>
+  {% csrf_token %}
+  
+    <div class="form-group">
+    <div class="col-lg-8">
+    <input id="id_name" class="form-control" maxlength="254" name="name" type="text" placeholder="Name">
     </div>
-
-{% endblock %}
-
-
-{% block extra_css %}
-
-    <link rel="stylesheet" href="static/css/dashboard.css"/>
-    <link rel="stylesheet" href="static/css/invoice.css"/>
-
-{% endblock %}
-
+  </div>
+  <div class="form-group">
+    <div class="col-lg-8">
+    <input id="id_price" class="form-control" maxlength="254" name="price" min= "0" max= "500"type="number" placeholder="Price">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">Submit</button>
+</form>
+</div>
+</div>
+</div>

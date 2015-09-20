@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
 
 class AddItemView(TemplateView):
-	template_name = 'items/item.html'
+	template_name = 'dashboard/item.html'
 	
 	def post(self, request, *args, **kwargs):
 		
