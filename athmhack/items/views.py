@@ -59,5 +59,5 @@ def dashboard(request):
 
 
 def dashadd(request):
-	return render(request, 'dashboard/add_invoice.html',[])
+	return render(request, 'invoices/add_invoice.html',[])
 
