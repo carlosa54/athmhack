@@ -18,4 +18,9 @@ urlpatterns = [
         views.dashboard,
         name="dashboard"
     ),
+    url(
+        r'dashboard/addInvoice$',
+        views.dashboard,
+        name="dashAdd"
+    ),
 ]
