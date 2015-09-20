@@ -41,6 +41,7 @@ class Common(Configuration):
         # Apps
         'athmhack.users',
         'athmhack.items',
+        'athmhack.api',
     )
 
     MIDDLEWARE_CLASSES = (

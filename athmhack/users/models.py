@@ -18,7 +18,7 @@ class User(BaseModel, AbstractBaseUser):
     phone = models.CharField(max_length=12, unique=True)
 
     is_admin = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     objects = AccountManager()
 
