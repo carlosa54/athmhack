@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
-
+{% load staticfiles %}
 {% block content %}
     <p>response: {{ status }}</p>
     <p>data: {{ data }}</p>
     <p>user: {{ user }}</p>
 
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock %}
