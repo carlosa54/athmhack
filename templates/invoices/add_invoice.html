@@ -17,7 +17,7 @@
                    {{ success }}
                 </div>
             {% endif %}
-            <form method="post" action="{% url 'invoices' %}" class="form-horizontal"> {% csrf_token %}
+            <form method="post" action="{% url 'dashboard' %}" class="form-horizontal"> {% csrf_token %}
                 <div class="form-group">
                     <label for="client" class="col-sm-2 control-label">Client</label>
                     <div class="col-sm-8">
