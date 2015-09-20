@@ -20,7 +20,7 @@ urlpatterns = [
     ),
     url(
         r'dashboard/addInvoice$',
-        views.dashboard,
+        views.dashadd,
         name="dashAdd"
     ),
 ]
