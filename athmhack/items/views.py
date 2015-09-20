@@ -56,3 +56,8 @@ class EditItemView(TemplateView):
 
 def dashboard(request):
 	return render(request, 'dashboard/index.html',[])
+
+
+def dashadd(request):
+	return render(request, 'dashboard/add_invoice.html',[])
+
