@@ -1,7 +1,4 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
 
-{% block content %}
     <div class="container" id="cont">
         <div class="jumbotron">
             <h2>Create a new Invoice</h2>
@@ -64,9 +61,4 @@
             </form>
         </div>
     </div>
-{% endblock %}
 
-{% block extra_js %}
-    <script src="{% static 'js/addItem.js' %}"></script>
-    <link rel="stylesheet" href="static/css/add_invoice.css"/>
-{% endblock %}
