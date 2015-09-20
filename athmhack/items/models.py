@@ -8,5 +8,8 @@ class Item(models.Model):
     price = models.DecimalField(max_digits= 5, decimal_places=2, validators= [MaxValueValidator(500)])
     user = models.ForeignKey(User)
 
+    class Meta:
+        unique_together = ("name", "user")
+
     def __unicode__(self):
         return "%s $%s" % (self.name, self.price)
