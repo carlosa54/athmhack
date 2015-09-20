@@ -18,4 +18,9 @@ urlpatterns = [
         views.LoginView.as_view(),
         name="login"
     ),
+    url(
+        r'^logout$',
+        views.user_logout,
+        name="logout"
+    ),
 ]
