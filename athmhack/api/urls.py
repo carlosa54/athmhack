@@ -17,5 +17,10 @@ urlpatterns = [
         r'^transactions/outbound',
         views.history_transaction_outgoing,
         name="outbound"
-    )
+    ),
+    url(
+        r'^sms',
+        views.send_sms_text,
+        name="sms"
+    ),
 ]

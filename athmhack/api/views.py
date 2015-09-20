@@ -43,3 +43,10 @@ def history_transaction_inbound(request):
                              headers=headers, json=payload)
     return render_to_response("api.html", {"status": response.status_code,
                                            "data": response.json})
+
+
+def send_sms_text(request):
+    payload = {"number": "7877027862", "message": "A test https://cashin.herokuapp.com"}
+    response = requests.post("http://textbelt.com/text", json=payload)
+    return render_to_response("api.html", {"status": response.status_code,
+                                           "data": response.json})
