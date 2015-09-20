@@ -68,7 +68,7 @@ class AddInvoiceView(TemplateView):
 
 
 class RetrieveInvoiceView(TemplateView):
-    template_name = "invoices/invoice.html"
+    template_name = "dashboard/invoice2.html"
 
     def post(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
