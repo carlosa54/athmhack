@@ -5,16 +5,16 @@
 <center><img src="{% static 'images/logo.png' %}" id="logo"></center>
 
 <div class="col-md-12" id="infoLogos"><center>
-	<div class="col-md-4"><img src="{% static 'images/invoice.png' %}" id="invoice" width="100" height="100"></div>
-	<div class="col-md-4"><img src="{% static 'images/payments.png' %}" id="payments" width="100" height="100"></div>
-	<div class="col-md-4"><img src="{% static 'images/items.png' %}" id="items" width="100" height="100"></div>
+	<div class="col-md-4"><a href="{% url 'invoices' %}"><img src="{% static 'images/invoice.png' %}" id="invoice" width="100" height="100"></a></div>
+	<div class="col-md-4"><a href="{% url 'invoices' %}"><img src="{% static 'images/payments.png' %}" id="payments" width="100" height="100"></a></div>
+	<div class="col-md-4"><a href="{% url 'items' %}"><img src="{% static 'images/items.png' %}" id="items" width="100" height="100"></a></div>
 	</center>
 </div>
 
 <div class="col-md-12" id="infoTxt"><center>
-	<div class="col-md-4"><img src="{% static 'images/invoiceTxt.png' %}" id="invoiceTxt" width="50" height="27"></div>
-	<div class="col-md-4"><img src="{% static 'images/payTxt.png' %}" id="paymentsTxt" width="100" height="100"></div>
-	<div class="col-md-4"><img src="{% static 'images/itemsTxt.png' %}" id="itemstxt" width="100" height="100"></div>
+	<div class="col-md-4"><a href="{% url 'invoices' %}"><img src="{% static 'images/invoiceTxt.png' %}" id="invoiceTxt" width="50" height="27"></a></div>
+	<div class="col-md-4"><a href="{% url 'invoices' %}"><img src="{% static 'images/payTxt.png' %}" id="paymentsTxt" width="100" height="100"></a></div>
+	<div class="col-md-4"><a href="{% url 'items' %}"><img src="{% static 'images/itemsTxt.png' %}" id="itemstxt" width="100" height="100"></a></div>
 	</center>
 </div>
 
