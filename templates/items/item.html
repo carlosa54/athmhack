@@ -1,6 +1,10 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
+{% block extra_css %}
+    <link rel="stylesheet" href="static/css/add_invoice.css"/>
+{% endblock %}
 {% block content %}
-<div class="jumbotron">
+<div class="container" id="cont">
+<div class="jumbotron" >
 <h3>Add item</h3>
 {% if error %}
 <div class="alert alert-dismissable alert-danger">
@@ -34,6 +38,6 @@
 </div>
 </div>
 </div>
-
+</div>
 
 {% endblock %}

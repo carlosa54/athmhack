@@ -16,7 +16,7 @@
                 <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="{% static 'images/menu.png' %}" width="20" height="20"></a>
                 <ul class="dropdown-menu">
-                    
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
                     <li><a href="{% url 'invoices' %}">Create Invoice</a></li>
                     <li><a href="{% url 'items' %}">Register Items</a></li>
                     <li class="divider"></li>
