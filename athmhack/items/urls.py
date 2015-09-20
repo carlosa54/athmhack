@@ -13,4 +13,9 @@ urlpatterns = [
         views.EditItemView.as_view(),
         name="edititem"
     ),
+    url(
+        r'dashboard$',
+        views.dashboard,
+        name="dashboard"
+    ),
 ]

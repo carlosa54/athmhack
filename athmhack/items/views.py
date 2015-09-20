@@ -47,3 +47,6 @@ class EditItemView(TemplateView):
 		if not request.user.is_authenticated():
 			return redirect("/login")
 		return self.render_to_response(context)
+
+def dashboard(request):
+	return render(request, 'dashboard/index.html',[])
