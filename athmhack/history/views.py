@@ -27,10 +27,10 @@ class HistoryView(TemplateView):
         payload = {"id": ath_id}
         response = requests.post("http://54.175.166.76:8080/api/transferHistory/outbound",
                                  headers=headers, json=payload)
-        #data = response.json()
-        #print data
-        #if data['responseStatus']['status'] == "SUCCESS":
-        #    payments_received = data['transferList']
-        #    context["payments_received"] = payments_received
+        data = response.json()
+        print data
+        if data['responseStatus']['status'] == "SUCCESS":
+            payments_received = data['transferList']
+            context["payments_received"] = payments_received
 
         return self.render_to_response(context)

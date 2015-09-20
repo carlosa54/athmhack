@@ -29,10 +29,10 @@
 
                                 {% for payment in payments_received %}
                                     <tr>
-                                        <td>{{ payment.date }}</td>
-                                        <td class="text-center">{{ payment.senderPhoneNum }}</td>
-                                        <td class="text-center">{{ payment.amount }}</td>
-                                        <td class="text-center">{{ payment.transferStatus }}</td>
+                                        <td>{{ payment.transfer.date }}</td>
+                                        <td class="text-center">{{ payment.transfer.senderPhoneNum }}</td>
+                                        <td class="text-center">{{ payment.transfer.amount }}</td>
+                                        <td class="text-center">{{ payment.transfer.transferStatus }}</td>
                                     </tr>
                                 {% endfor %}
                             </tbody>
@@ -62,10 +62,10 @@
 
                                 {% for payment in payments_sent %}
                                     <tr>
-                                        <td>{{ payment.date }}</td>
-                                        <td class="text-center">{{ payment.recipientPhoneNum }}</td>
-                                        <td class="text-center">{{ payment.amount }}</td>
-                                        <td class="text-center">{{ payment.transferStatus }}</td>
+                                        <td>{{ payment.transfer.date }}</td>
+                                        <td class="text-center">{{ payment.transfer.recipientPhoneNum }}</td>
+                                        <td class="text-center">{{ payment.transfer.amount }}</td>
+                                        <td class="text-center">{{ payment.transfer.transferStatus }}</td>
                                     </tr>
                                 {% endfor %}
                             </tbody>
