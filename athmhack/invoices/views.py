@@ -81,7 +81,8 @@ class RetrieveInvoiceView(TemplateView):
             if not invoice.paid:
                 ath_id = request.session.get('ath_id', None)
                 headers = {"content-type": "application/json"}
-                payload = {"senderId": ath_id, "recipientPhoneNum": "7877027862", "amount": float("%s" % invoice.total)}
+                payload = {"senderId": ath_id, "recipientPhoneNum": invoice.biller.phone,
+                           "amount": float("%s" % invoice.total)}
                 response = requests.post("http://54.175.166.76:8080/api/makeTransfer",
                                          headers=headers, json=payload)
                 data = response.json()
