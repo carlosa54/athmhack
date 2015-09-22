@@ -12,7 +12,7 @@
         <div class="col-md-5">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="text-center"><strong>Payments Received</strong></h3>
+                    <h3 class="text-center"><strong>Payments Sent</strong></h3>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -20,7 +20,7 @@
                             <thead>
                                 <tr>
                                     <td><strong>Date</strong></td>
-                                    <td class="text-center"><strong>Client Phone</strong></td>
+                                    <td class="text-center"><strong>Biller Phone</strong></td>
                                     <td class="text-center"><strong>Amount</strong></td>
                                     <td class="text-center"><strong>Status</strong></td>
                                 </tr>
@@ -30,7 +30,7 @@
                                 {% for payment in payments_received %}
                                     <tr>
                                         <td>{{ payment.transfer.date }}</td>
-                                        <td class="text-center">{{ payment.transfer.senderPhoneNum }}</td>
+                                        <td class="text-center">{{ payment.transfer.recipientPhoneNum }}</td>
                                         <td class="text-center">{{ payment.transfer.amount }}</td>
                                         <td class="text-center">{{ payment.transfer.transferStatus }}</td>
                                     </tr>
@@ -45,7 +45,7 @@
         <div class="col-md-5">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="text-center"><strong>Payments Sent</strong></h3>
+                    <h3 class="text-center"><strong>Payments Received</strong></h3>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -53,7 +53,7 @@
                             <thead>
                                 <tr>
                                     <td><strong>Date</strong></td>
-                                    <td class="text-center"><strong>Biller</strong></td>
+                                    <td class="text-center"><strong>Client</strong></td>
                                     <td class="text-center"><strong>Amount</strong></td>
                                     <td class="text-center"><strong>Status</strong></td>
                                 </tr>
@@ -63,7 +63,7 @@
                                 {% for payment in payments_sent %}
                                     <tr>
                                         <td>{{ payment.transfer.date }}</td>
-                                        <td class="text-center">{{ payment.transfer.recipientPhoneNum }}</td>
+                                        <td class="text-center">{{ payment.transfer.senderPhoneNum }}</td>
                                         <td class="text-center">{{ payment.transfer.amount }}</td>
                                         <td class="text-center">{{ payment.transfer.transferStatus }}</td>
                                     </tr>
